@@ -57,9 +57,9 @@ class PlayerDetailVC: UIViewController {
     playButton.setImage(UIImage(systemName: "play"), for: .normal)
     return playButton
   }()
-  private let pauseButton: UIButton = {
+  private let forwardButton: UIButton = {
     let pauseButton = UIButton()
-    pauseButton.setImage(UIImage(systemName: "pause"), for: .normal)
+    pauseButton.setImage(UIImage(systemName: "forward"), for: .normal)
     return pauseButton
   }()
   private let toolsStackView2 : UIStackView = {
@@ -68,6 +68,8 @@ class PlayerDetailVC: UIViewController {
     stckView.distribution = .fillEqually
     return stckView
   }()
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
@@ -94,16 +96,19 @@ class PlayerDetailVC: UIViewController {
     toolsStackView2.addArrangedSubview(UIView())
     toolsStackView2.addArrangedSubview(playButton)
     toolsStackView2.addArrangedSubview(UIView())
-    toolsStackView2.addArrangedSubview(pauseButton)
+    toolsStackView2.addArrangedSubview(forwardButton)
 
     NSLayoutConstraint.activate([
       coverImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant:  30),
       coverImageView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 30),
       coverImageView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: -30),
-      coverImageView.heightAnchor.constraint(equalToConstant: coverImageView.frame.size.width - -80),
+
+      coverImageView.heightAnchor.constraint(equalTo: coverImageView.widthAnchor, constant: -80),
 
 
-      pagerView.topAnchor.constraint(equalTo: coverImageView.bottomAnchor, constant: 20),
+
+
+      pagerView.topAnchor.constraint(equalTo: coverImageView.bottomAnchor, constant: 50),
       pagerView.leadingAnchor.constraint(equalTo: coverImageView.leadingAnchor),
       pagerView.trailingAnchor.constraint(equalTo: coverImageView.trailingAnchor),
       pagerView.heightAnchor.constraint(equalToConstant: 30),
@@ -114,19 +119,23 @@ class PlayerDetailVC: UIViewController {
       toolsStackView.trailingAnchor.constraint(equalTo: coverImageView.trailingAnchor),
       toolsStackView.heightAnchor.constraint(equalToConstant: 40),
 
-      sliderView.topAnchor.constraint(equalTo: toolsStackView.bottomAnchor,constant: 70),
+      sliderView.topAnchor.constraint(equalTo: toolsStackView.bottomAnchor,constant: 50),
       sliderView.leadingAnchor.constraint(equalTo: coverImageView.leadingAnchor),
       sliderView.trailingAnchor.constraint(equalTo: coverImageView.trailingAnchor),
       sliderView.heightAnchor.constraint(equalToConstant: 30),
 
-      toolsStackView2.topAnchor.constraint(equalTo: sliderView.bottomAnchor, constant:  50),
+      toolsStackView2.topAnchor.constraint(equalTo: sliderView.bottomAnchor, constant:  70),
       toolsStackView2.leadingAnchor.constraint(equalTo: coverImageView.leadingAnchor),
       toolsStackView2.trailingAnchor.constraint(equalTo: coverImageView.trailingAnchor),
-      toolsStackView2.heightAnchor.constraint(equalToConstant: 40),
+      toolsStackView2.heightAnchor.constraint(equalToConstant: 60),
+
+
 
 
 
     ])
+
+
   }
 
 }
