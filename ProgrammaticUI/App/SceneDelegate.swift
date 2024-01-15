@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     let window = UIWindow(windowScene: windowscene)
 
-    let vc = PlayerDetailVC()
+    let vc = ViewController()
     let navController = UINavigationController(rootViewController: vc)
     window.rootViewController = navController
     self.window = window
